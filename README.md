@@ -1,6 +1,10 @@
 Kobol-extra
 ===========
 
+|Project Status|Communication|
+|:-----------:|:-----------:|
+|[![Build status](https://api.travis-ci.org/pearl-hub/kobol-extra.png?branch=master)](https://travis-ci.org/pearl-hub/kobol-extra) | [![Join the gitter chat at https://gitter.im/pearl-hub/kobol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pearl-hub/kobol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
+
 **Table of Contents**
 - [Description](#description)
 - [Quickstart](#quickstart)
