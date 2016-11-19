@@ -1,6 +1,4 @@
-
 #  git
-
 
 ## config
 
@@ -23,8 +21,6 @@ To set color:
 
 To check config:
 `git config --list`
-
-
 
 ## init a project
 
@@ -179,7 +175,6 @@ There are two important gui tools (do not forget to install tk package first):
 `gtk gui; gitk`
 
 
-
 ## working with remote
 
 To know the remotes:
@@ -194,7 +189,6 @@ To get data from a remote repo (but it don't merge):
 To fetch a specific branch and merge it into your current local branch:
 `git pull (remote) (branchname)`
 
-
 To push a local branch to remote repo:
 `git push (remote) (branch)`
 
@@ -208,7 +202,6 @@ Note: This command works only if you cloned and if nobody has pushed in the mean
 
 To see info about a remote:
 `git remote show origin`
-
 
 To remove a remote:
 `git remote rm dav`
@@ -311,7 +304,6 @@ To see merged or no-merged branchs:
 To move/rename a branch:
 `git branch -m oldbranch newbranch`
 
-
 WITH REMOTE:
 To get changes from a remote you can do two things (after doing "remote add" command):
 *    Fetch and then merge the current local branch:
@@ -325,16 +317,11 @@ To create/rename another branch from local to remote:
 
 `git push origin local_branch:remote_branch`
 
-
-The local branch will automatically push to and pull from remote/remote_branch:
-
+The local branch will automatically push to and pull from remote/remote\_branch:
 `git checkout --track remote/remote_branch`
 
-
-`git checkout -b local_branch remote/remote_branch`
-
-
-
+Similar approach can be done in this way:
+`git branch --set-upstream-to=origin/master master`
 
 ## deploying using git on server
 
@@ -358,7 +345,7 @@ Write the following:
 
 - !/bin/sh
 cd ..
-GIT_DIR='.git'
+GIT\_DIR='.git'
 umask 002 &amp;&amp; git reset --hard
 
 
@@ -485,7 +472,7 @@ To get the grandparent:
 
 
 COMMIT RANGES:
-What is in experiment branch that hasn’t yet been merged into master branch?
+What is in experiment branch that hasnot yet been merged into master branch?
 `git show master..experiment`
 
 Or to get a log for the commits that has to be merged in a remote:
@@ -569,17 +556,12 @@ Instead of creating a submodule the method creates a branch:
 3) Read the root tree of the branch and put the content into 'rack' dir:
 `git read-tree --prefix=rack/ -u rack_branch`
 
-4) After any changes from the rack_branch, merge it using:
+4) After any changes from the rack\_branch, merge it using:
 `git merge --squash -s subtree --no-commit rack_branch`
 
 
-To see the diff between the 'rack' directory and rack_branch:
+To see the diff between the 'rack' directory and rack\_branch:
 `git diff-tree -p rack_branch`
-
-
-
-
-
 
 ## stashing
 
@@ -607,9 +589,4 @@ After changes it is possible to unapply the work from a stash:
 
 To create a branch from a stash:
 `git stash branch branch_name`
-
-
-
-
-
 

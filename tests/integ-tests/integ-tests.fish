@@ -1,17 +1,15 @@
 #!/usr/bin/fish
 
-if [ -z $argv[1] ]
-    echo "ERROR: To run the integ tests you must specify the Pearl location."
-    echo "For instance: $0 ~/.local/share/pearl"
-    exit 33
-end
+source $HOME/.config/fish/config.fish
 
-set -x PEARL_ROOT $argv[1]
+pearl install test
 
-# From here is where you can add the integ tests for your packages
+# Fish trap may not work from time to time.
+# Forcing the sourcing here:
+source $HOME/.config/fish/config.fish
 
 if [ ! -d $PEARL_HOME/packages/default/test ]
-    echo "The package test does not exist after install"
+    echo "Error: The package test does not exist after installing it."
     exit 1
 end
 

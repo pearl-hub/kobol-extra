@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "GIT" "1" "December 2015" "Filippo Squillace" "git"
+.TH "GIT" "1" "November 2016" "Filippo Squillace" "git"
 .
 .SH "config"
 To set user information:
@@ -282,13 +282,10 @@ To create/rename another branch from local to remote:
 \fBgit push origin local_branch:remote_branch\fR
 .
 .P
-The local branch will automatically push to and pull from remote/remote_branch:
+The local branch will automatically push to and pull from remote/remote_branch: \fBgit checkout \-\-track remote/remote_branch\fR
 .
 .P
-\fBgit checkout \-\-track remote/remote_branch\fR
-.
-.P
-\fBgit checkout \-b local_branch remote/remote_branch\fR
+Similar approach can be done in this way: \fBgit branch \-\-set\-upstream\-to=origin/master master\fR
 .
 .SH "deploying using git on server"
 The best way is create a working directory on remote sever\. SERVER SIDE To disable the control from git:
@@ -404,7 +401,7 @@ ANCESTRY REFS: There are two specification ^ or ~\. ^ is used to traverse ancest
 To get the grandparent: \fBgit shoe HEAD~2\fR
 .
 .P
-COMMIT RANGES: What is in experiment branch that hasn’t yet been merged into master branch? \fBgit show master\.\.experiment\fR
+COMMIT RANGES: What is in experiment branch that hasnot yet been merged into master branch? \fBgit show master\.\.experiment\fR
 .
 .P
 Or to get a log for the commits that has to be merged in a remote: \fBgit log origin/master\.\.HEAD\fR
