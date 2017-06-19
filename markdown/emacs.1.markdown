@@ -1,5 +1,4 @@
-
-#  emacs
+#  Emacs - Basics of Emacs
 
 
 ## Help

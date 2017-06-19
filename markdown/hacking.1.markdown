@@ -1,5 +1,4 @@
-
-#  hacking
+#  Hacking - Some hacks stuff
 
 
 ## keylogger with xinput

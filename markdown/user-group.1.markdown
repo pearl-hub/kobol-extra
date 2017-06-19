@@ -1,60 +1,34 @@
-
-# Administrator #
-
-
+# User/Group - User/Group utility commands
 
 ## finger
 
 [-sl][utente][@macchina]ottieni info su un utente o sulla macchina, quale e' l'ultima volta che è acceduto al sistema. -s forma breve, -l forma estesa.
 
-
-
 ## adduser
 
 "utente"aggiunge un utente
-
-
-
 
 ## groupadd gruppo
 
 aggiunge un gruppo
 
-
-
-
 ## passwd
 
 serve a cambiare la password
-
-
-
 
 ## sudo
 
 Da rivedere
 
-
-
-
 ## su
 
 permette di cambiare utente
 
-
-
-
 ## whoami 
-
-
-
-
 
 ## who
 
 fornisce info sugli utenti connessi al sistema
-
-
 
 ## last
 

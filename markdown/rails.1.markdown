@@ -1,5 +1,5 @@
 
-#  rails
+#  Ruby on Rails - Rails Basics
 
 
 ## install rails and heroku

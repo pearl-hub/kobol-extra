@@ -1,7 +1,4 @@
-
-#  processi memoria comandi
-
-
+# System management - System utility commands
 
 ## Codici del comando exit
 
@@ -26,22 +23,14 @@ To check only some system call (i.e. open,..) for a given process:
 
 `strace -f -p pid -e open,access,poll,select,connect,recvfrom,sendto [-c]`
 
-
-
-
-
 ## exec comando
 
 anziche generare un processo figlio per eseguire "comando", con exec la shell e' sostituita dal comando. Se exec viene utilizzato in uno script qst termina all'esecuzione di exec
-
-
 
 ## pidof
 
 Mostra il pid del processo passato come argomento:
 `pidof processo`
-
-
 
 
 ## ulimit -a

@@ -1,5 +1,4 @@
-
-#  man in the middle(mitm) sniffing
+#  MITM - Man in the middle sniffing
 
 
 ## sysctl
@@ -15,9 +14,6 @@ For example:
 
 To load the value into kernel and become live:
 `sysctl -a`
-
-
-
 
 
 ## ettercap - mitm

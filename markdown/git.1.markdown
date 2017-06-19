@@ -1,4 +1,4 @@
-#  git
+# Git - How to use Git command
 
 ## config
 

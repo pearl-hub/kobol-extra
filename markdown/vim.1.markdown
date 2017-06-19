@@ -1,5 +1,4 @@
-
-#  vim
+# Vim - Simple Vim tutorial
 
 
 ## lezione 1 - movimento

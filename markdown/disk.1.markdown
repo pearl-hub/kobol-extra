@@ -1,4 +1,4 @@
-#Disk management#
+#Disk management - Disk management utility commands
 
 ##No space left on device##
 Disk partition usage:

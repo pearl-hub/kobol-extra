@@ -1,5 +1,4 @@
-
-#  fugitive
+# Fugitive - The most famous Vim plugin for Git
 
 
 ## :Git

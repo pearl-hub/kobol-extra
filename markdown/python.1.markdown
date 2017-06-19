@@ -1,5 +1,4 @@
-
-PYTHON
+PYTHON - Python Basics
 ======
 
 PYTHONPATH

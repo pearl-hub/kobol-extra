@@ -1,4 +1,4 @@
-# String Manipulation #
+# String - String Manipulation
 
 This manual contains the main commands for string manipulation
 Reference: http://www.techdarting.com/2015/05/linux-commands-for-text-manipulating.html

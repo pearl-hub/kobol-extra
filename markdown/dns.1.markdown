@@ -1,5 +1,4 @@
-
-#  dns lookup
+#  DNS - DNS utility commands
 
 
 ## overview

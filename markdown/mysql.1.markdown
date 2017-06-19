@@ -1,5 +1,4 @@
-
-#  mysql
+#  mysql - MySql basics
 
 
 ## common commands

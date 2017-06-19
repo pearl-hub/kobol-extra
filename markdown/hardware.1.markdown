@@ -1,5 +1,4 @@
-
-#  sistema hardware
+# Hardware - Hardware management commands
 
 
 

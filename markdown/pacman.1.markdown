@@ -1,5 +1,4 @@
-
-#  pacman and makepkg
+#  Pacman and Makepkg - How to use Pacman and Makepkg
 
 
 ## pacman

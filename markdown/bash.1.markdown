@@ -1,5 +1,5 @@
 
-# Bash #
+# Bash - Bourne shell
 
 
 ## history

@@ -1,5 +1,5 @@
 
-#  bitlbee
+#  bitlbee - IRC Gateway
 
 
 ## help

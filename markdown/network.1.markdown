@@ -1,5 +1,4 @@
-
-#  network
+# Network - Network utility commands
 
 ## netcfg
 
@@ -12,8 +11,6 @@
 
 4. To Access at the menu any time (require dialog package):
 `netcfg-menu`
-
-
 
 ## automatic connection
 

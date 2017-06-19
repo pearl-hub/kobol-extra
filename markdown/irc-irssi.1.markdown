@@ -1,5 +1,4 @@
-
-#  irc irssi
+#  IRC irssi - How to use IRC and Irssi
 
 
 ## basic commands

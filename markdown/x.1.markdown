@@ -1,7 +1,4 @@
-
-#  X WINDOW
-
-
+#  X WINDOW - X Window
 
 ## xte
 

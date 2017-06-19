@@ -1,4 +1,4 @@
-# ECryptfs #
+# ECryptfs - How to use ECryptfs
 
 More information [here](https://wiki.archlinux.org/index.php/ECryptfs#Manual_setup)
 
