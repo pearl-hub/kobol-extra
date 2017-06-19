@@ -258,31 +258,45 @@ permette di eseguire un comando cambiando la directory di root. Es. chroot /mnt/
 
 
 
-
 ## ldd /usr/bin/comando
 
 permette di fornire info sulle librerie (sorte di .dll) utilizzate dal comando
 
 
-
-
 ## crontab
 
-esegue comandi ad una certa data. è necessario che sia attivo il demone crond(attivabile con /etc/rc2.d/S89cron start). -e modifica il file di conf -l lo visualizza -r lo rimuove
+It allows to repeat comands over the time. It is needed to have the daemon crond running.
+The system crontab are located in `/etc/crontab` whereas the user crontab are in `/var/spool/cron`.
 
+To setup easily crontabs go to: http://corntab.com
 
+To add/edit jobs:
+`crontab -e`
+
+To view the list of scheduled jobs:
+`crontab -l`
+
+To remove jobs:
+`crontab -r`
 
 ## at
 
-The general commands are:
-I comandi sono at, batch, atq, e atrm:
-*  at esegue i comandi in un momento specificato.
-*  atq elenca i lavori in attesa dell’utente, a meno che l’utente non sia il superutente;
-in tal caso, tutti i lavori sono elencati.
-*  atrm elimina uno dei lavori in attesa, identificati dal loro numero.
-*  batch esegue comandi quando permesso dal livello di carico del sistema,
-in altre parole, quando il carico medio scende sotto 1.5,
-o il valore specificato nella chiamata di atd
+To perform a script at 1am tomorrow:
+`at 1am tomorrow`
+
+The previous command will open an `at` session in which you can write the
+sequence of commands to run at the specified time.
+
+To list all job in queue:
+`atq`
+
+To remove the job ID in the queue:
+`atrm <ID>`
+
+To execute the commands when the avg load is lower than 1.5 or lower than the value specified in `atd` command:
+`batch`
+
+### Further examples
 
 To execute at script.sh at 20.00 send an email of the output
 and insert the job into the queue a:
@@ -290,17 +304,8 @@ and insert the job into the queue a:
 
 Other possible values of time are "midnight Friday"
 
-To see the list of jobs:
-`atq`
-
 To see the detail of the job number 3:
 `at -c 3`
-
-To remove the job number 3:
-`atrm 3`
-
-
-
 
 ## init 0123456Ss
 

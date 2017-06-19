@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "NETWORK" "1" "July 2016" "Filippo Squillace" "network"
+.TH "NETWORK" "1" "June 2017" "Filippo Squillace" "network"
 .
 .SH "netcfg"
 .
@@ -416,7 +416,27 @@ To track the route for a TCP connection in a particular port to a host: \fBtcptr
 To check if a TCP connection is working you can also use telnet: \fBtelnet 192\.168\.1\.1 3306\fR
 .
 .SH "hping"
-Modes are: * \-\-udp * \-\-tcp (default) * \-\-icmp * \-\-scan * \-\-listen * \-\-rawip
+Modes are:
+.
+.IP "\(bu" 4
+\-\-udp
+.
+.IP "\(bu" 4
+\-\-tcp (default)
+.
+.IP "\(bu" 4
+\-\-icmp
+.
+.IP "\(bu" 4
+\-\-scan
+.
+.IP "\(bu" 4
+\-\-listen
+.
+.IP "\(bu" 4
+\-\-rawip
+.
+.IP "" 0
 .
 .P
 Makes a traceroute: \fBsudo hping3 \-\-traceroute \-V \-\-udp www\.google\.com\fR
@@ -433,10 +453,22 @@ Also with random source IP: \fBsudo hping3 192\.168\.1\.1 \-\-udp \-\-rand\-sour
 .P
 Scan the port (using \-S syn/\-A ack/\-F fin): \fBsudo hping3 192\.168\.1\.1 \-S \-\-scan 1\-1024\fR
 .
+.SS "Listen mode"
+To listen on port 80 and use a password to authenticate for executing whatever command remotely/locally: \fBsudo hping3 \-I eth0 \-p 80 \-\-listen mypassword | /bin/sh\fR
+.
+.P
+Now, in order to run the command \fBls\fR type the following on browser:\fBhttp://localhost/mypasswordls\fR
+.
+.P
+Same thing can be by writing "mypasswordls" inside a \fBtelnet\fR session: \fBtelnet localhost 80\fR
+.
 .SH "netcat"
 The option \-p correspond always to the local port\. The option \-z is used for port scanning but not for sending data\.
 .
 .SS "Connect mode"
+To just verify a certain port is opened: \fBnc \-vz www\.cyberciti\.biz 443\fR
+.
+.P
 To check connection to server\.com:8080 from source port 1025 waiting for one second: \fBnc \-w1 \-z \-u \-p 1025 server\.com 8080\fR
 .
 .P
@@ -458,26 +490,12 @@ Later just do: \fBtelnet localhost 3005\fR
 .
 .nf
 
-exec 5<>/dev/tcp/time\.nist\.gov/13; cat <&5 & cat >&5; exec 5>&\-
+echo > /dev/tcp/www\.cyberciti\.biz/443
 .
 .fi
 .
-.IP "\(bu" 4
-exec sets up a redirect for /dev/tcp/$server/$host to file descriptor 5
-.
-.IP "\(bu" 4
-first cat redirects from file descriptor 5 to STDOUT
-.
-.IP "\(bu" 4
-second cat redirects STDIN to file descriptor 5
-.
-.IP "\(bu" 4
-last exec cleans up the file descriptor
-.
-.IP "" 0
-.
 .P
-Re: http://www\.commandlinefu\.com/commands/view/14406/read\-and\-write\-to\-tcp\-or\-udp\-sockets\-with\-common\-bash\-tools
+Ref: https://www\.cyberciti\.biz/faq/ping\-test\-a\-specific\-port\-of\-machine\-ip\-address\-using\-linux\-unix/
 .
 .SH "socat"
 Aka (SOcket CAT)\. It allows to establish two bidirectional byte streams that can be used for many purposes\.
@@ -624,37 +642,38 @@ Consente di ricavare l\'indirizzo MAC a partire dall\'indirizzo IP: \fBarp 192\.
 .SH "nmap"
 Host discovery (ping scan): \fBnmap \-sP \-n 192\.168\.1\.0\-255\fR
 .
-.P
-PORTS SCAN: Using SYN packets: \fBsudo nmap \-sS \-n 192\.168\.1\.\e*\fR
+.SS "Port scanning"
+Using SYN packets: \fBnmap \-sS \-n 192\.168\.1\.\e*\fR
 .
 .P
-Using ACK packets: \fBsudo nmap \-sA \-n \-A 192\.168\.1\.1\fR
+Using ACK packets: \fBnmap \-sA \-n \-A 192\.168\.1\.1\fR
 .
 .P
-Using NULL: \fBsudo nmap \-sN \-n \-A 192\.168\.1\.1\fR
+Using NULL: \fBnmap \-sN \-n \-A 192\.168\.1\.1\fR
 .
 .P
-Detect remote services version number(sV) and OS (A): \fBsudo nmap \-A \-sV 192\.168\.1\.1\fR
+Detect remote services version number(sV) and OS (A): \fBnmap \-A \-sV 192\.168\.1\.1\fR
 .
 .P
-When protected by firewall: \fBsudo nmap \-PN 192\.168\.1\.1\fR
+When protected by firewall: \fBnmap \-PN 192\.168\.1\.1\fR
 .
 .P
-Scan specific port (with Tcp or Udp): \fBsudo nmap \-p U:53,111,137,T:21\-25,80,139,8080 192\.168\.1\.1\fR
+Scan specific port (with Tcp or Udp): \fBnmap \-p U:53,111,137,T:21\-25,80,139,8080 192\.168\.1\.1\fR
 .
 .P
-To read a list of host in a file and scan them: \fBsudo nmap \-iL /tmp/file\.txt\fR
+To read a list of host in a file and scan them: \fBnmap \-iL /tmp/file\.txt\fR
 .
 .P
-Show interface list and routes: \fBsudo nmap \-\-iflist\fR
+Show interface list and routes: \fBnmap \-\-iflist\fR
 .
 .P
-MAC spoof: \fBsudo nmap \-\-spoof\-mac MAC\-ADDRESS\-HERE 192\.168\.1\.1\fR
+MAC spoof: \fBnmap \-\-spoof\-mac MAC\-ADDRESS\-HERE 192\.168\.1\.1\fR
 .
 .P
 Awesome GUI interface is zenmap
 .
-.SS "NSE (Nmap Security Engine) scripts"
+.P
+Ref: https://www\.cyberciti\.biz/networking/nmap\-command\-examples\-tutorials/
 .
 .SH "macof"
 consente di fare flooding su uno switch per facilitare lo sniffing!

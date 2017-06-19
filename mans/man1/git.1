@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "GIT" "1" "November 2016" "Filippo Squillace" "git"
+.TH "GIT" "1" "April 2017" "Filippo Squillace" "git"
 .
 .SH "config"
 To set user information:
@@ -127,6 +127,12 @@ You can use git revert to reverse a specific commit:
 .
 .P
 \fBgit revert 42c54ed7262d\fR
+.
+.P
+To revert the last two commits with new ones:
+.
+.P
+\fBgit revert HEAD~2\.\.HEAD\fR
 .
 .P
 The nuclear option is with git reset \-\-hard\.

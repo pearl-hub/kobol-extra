@@ -150,6 +150,10 @@ You can use git revert to reverse a specific commit:
 
 `git revert 42c54ed7262d`
 
+To revert the last two commits with new ones:
+
+`git revert HEAD~2..HEAD`
+
 The nuclear option is with git reset --hard.
 
 Use git reflog to see your recent commits from newest to oldest:

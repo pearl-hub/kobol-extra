@@ -322,8 +322,6 @@ To check if a TCP connection is working you can also use telnet:
 `telnet 192.168.1.1 3306`
 
 
-
-
 ## tcptraceroute
 
 To track the route for a TCP connection in a particular port to a host:
@@ -332,12 +330,10 @@ To track the route for a TCP connection in a particular port to a host:
 To check if a TCP connection is working you can also use telnet:
 `telnet 192.168.1.1 3306`
 
-
-
-
 ## hping
 
 Modes are:
+
 *  --udp
 *  --tcp (default)
 *  --icmp
@@ -347,7 +343,6 @@ Modes are:
 
 Makes a traceroute:
 `sudo hping3 --traceroute -V --udp www.google.com`
-
 
 Sends only one packet from port 6000 (-S syn/-A ack/-F fin) on 80 port:
 `sudo hping3 -c 1 -V -S -p 80 -s 6000 192.168.1.1`
@@ -359,11 +354,18 @@ Also with random source IP:
 `sudo hping3 192.168.1.1 --udp --rand-source`
 
 
-Scan the port (using -S syn/-A ack/-F fin): 
+Scan the port (using -S syn/-A ack/-F fin):
 `sudo hping3 192.168.1.1 -S --scan 1-1024`
 
+### Listen mode
 
+To listen on port 80 and use a password to authenticate for executing whatever command remotely/locally:
+`sudo hping3 -I eth0 -p 80 --listen mypassword | /bin/sh`
 
+Now, in order to run the command `ls` type the following on browser:`http://localhost/mypasswordls`
+
+Same thing can be by writing "mypasswordls" inside a `telnet` session:
+`telnet localhost 80`
 
 ## netcat ##
 
@@ -371,6 +373,9 @@ The option -p correspond always to the local port.
 The option -z is used for port scanning but not for sending data.
 
 ###Connect mode###
+
+To just verify a certain port is opened:
+`nc -vz www.cyberciti.biz 443`
 
 To check connection to server.com:8080 from source port 1025 waiting for one second:
 `nc -w1 -z -u -p 1025 server.com 8080`
@@ -396,15 +401,9 @@ Later just do:
 
 ### Check connectivity without netcat! ###
 
-    exec 5<>/dev/tcp/time.nist.gov/13; cat <&5 & cat >&5; exec 5>&-
+    echo > /dev/tcp/www.cyberciti.biz/443
 
-- exec sets up a redirect for /dev/tcp/$server/$host to file descriptor 5
-- first cat redirects from file descriptor 5 to STDOUT
-- second cat redirects STDIN to file descriptor 5
-- last exec cleans up the file descriptor
-
-Re: http://www.commandlinefu.com/commands/view/14406/read-and-write-to-tcp-or-udp-sockets-with-common-bash-tools
-
+Ref: https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-using-linux-unix/
 
 ##socat##
 
@@ -561,68 +560,54 @@ Consente di ricavare l'indirizzo MAC a partire dall'indirizzo IP:
 
 ## nmap ##
 
-
 Host discovery (ping scan):
 `nmap -sP -n 192.168.1.0-255`
 
 
-PORTS SCAN:
+### Port scanning
+
 Using SYN packets:
-`sudo nmap -sS -n 192.168.1.\*`
+`nmap -sS -n 192.168.1.\*`
 
 Using ACK packets:
-`sudo nmap -sA -n -A 192.168.1.1`
+`nmap -sA -n -A 192.168.1.1`
 
 Using NULL:
-`sudo nmap -sN -n -A 192.168.1.1`
+`nmap -sN -n -A 192.168.1.1`
 
 Detect remote services version number(sV) and OS (A):
-`sudo nmap -A -sV 192.168.1.1`
+`nmap -A -sV 192.168.1.1`
 
 When protected by firewall:
-`sudo nmap -PN 192.168.1.1`
+`nmap -PN 192.168.1.1`
 
 Scan specific port (with Tcp or Udp):
-`sudo nmap -p U:53,111,137,T:21-25,80,139,8080 192.168.1.1`
-
+`nmap -p U:53,111,137,T:21-25,80,139,8080 192.168.1.1`
 
 To read a list of host in a file and scan them:
-`sudo nmap -iL /tmp/file.txt`
-
+`nmap -iL /tmp/file.txt`
 
 Show interface list and routes:
-`sudo nmap --iflist`
-
+`nmap --iflist`
 
 MAC spoof:
-`sudo nmap --spoof-mac MAC-ADDRESS-HERE 192.168.1.1`
-
+`nmap --spoof-mac MAC-ADDRESS-HERE 192.168.1.1`
 
 Awesome GUI interface is zenmap
 
-### NSE (Nmap Security Engine) scripts ###
-
-
+Ref: https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/
 
 ## macof ##
 
 consente di fare flooding su uno switch per facilitare lo sniffing!
 
-
-
-
 ## lynx
 
 browser web su SHELL!!!!
 
-
-
-
 ## ipcalc
 
 da info sull'ind IP. con -h trova il nome dell'host a partire dall' IP
-
-
 
 
 ## route

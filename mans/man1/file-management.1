@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "FILE\-MANAGEMENT" "1" "April 2016" "Filippo Squillace" "file-management"
+.TH "FILE\-MANAGEMENT" "1" "May 2017" "Filippo Squillace" "file-management"
 .
 .SH "less"
 To watch the changing in the tail of the file press Shift+f\.
@@ -61,10 +61,19 @@ fa la ricerca come find, ma su un file indicizzato creato con il comando updated
 \-o "file" scrive il DB su "file"; \-\-database\-root "Path" fa lo scan solo a partire da path\. controllare /etc/updatedb\.conf per guardare le regole utilizzate\.
 .
 .SH "cmp"
-simile a diff
+The cmp command tells you if two files are different and where the first difference appears\. \fBcmp file1 file2\fR
 .
 .SH "diff"
-Denota differenze tra 2 o più file\.\-urN option\. Per creare una patch basta digitare: \fBdiff "file" "file" > patch\fR oppure nel caso di patch binaria: \fBdiff \-a \-\-binary bin bin\.2 > patch\fR \. Al fine di applicare la patch ad un file usare il comando patch\.
+To create a patch: \fBdiff file1 file2 > patch\fR
+.
+.P
+And for binary files: \fBdiff bin1 bin2 > patch\fR
+.
+.P
+If you want to know if two file are just different without see the differences: \fBdiff \-q file1 file2\fR
+.
+.P
+For side\-by\-side diff: \fBdiff \-y file1 file2\fR
 .
 .SH "patch"
 Serve per applicare una patch (creata con il comando diff) ad un file vecchio:

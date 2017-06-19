@@ -104,26 +104,24 @@ fa la ricerca come find, ma su un file indicizzato creato con il comando updated
 
 -o "file" scrive il DB su "file"; --database-root "Path" fa lo scan solo a partire da path. controllare /etc/updatedb.conf per guardare le regole utilizzate.
 
-
-
-
 ## cmp
 
-simile a diff
-
-
-
+The cmp command tells you if two files are different and where the first difference appears.
+`cmp file1 file2`
 
 ## diff
 
-Denota differenze tra 2 o più file.-urN option.
-Per creare una patch basta digitare:
-`diff "file" "file" > patch`
- oppure nel caso di patch binaria:
-`diff -a --binary bin bin.2 > patch`
-.
-Al fine di applicare la patch ad un file usare il comando patch.
+To create a patch:
+`diff file1 file2 > patch`
 
+And for binary files:
+`diff bin1 bin2 > patch`
+
+If you want to know if two file are just different without see the differences:
+`diff -q file1 file2`
+
+For side-by-side diff:
+`diff -y file1 file2`
 
 
 ## patch

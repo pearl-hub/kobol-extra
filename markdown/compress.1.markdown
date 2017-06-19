@@ -1,12 +1,8 @@
-
-#  compressori convertitori
-
+#  (Un)Compress files and directories
 
 ## unrar
-
 To UNRAR a compress file:
 `unrar e file.rar path/to/dir`
-
 
 
 ## tar -zcvf  archivio.tar.gz Directory/
@@ -72,11 +68,13 @@ Possible values are:
 
 
 
-## zip file.zip file
+## (un)zip
 
-comprime un file in file.zip. è possibile decomprimere con -  unzip file.zip
+`zip file.zip myfile`
 
+To unzip a file on a specific destination directory:
 
+`unzip -d /tmp/data/ master.zip`
 
 
 ## bzip2 file / bunzip2 file
