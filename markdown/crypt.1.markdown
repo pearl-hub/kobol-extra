@@ -14,6 +14,8 @@ Each line contains the information separated by *:*:
 - The number of days after password expires that account is disabled
 - Days since Jan 1, 1970 that account is disabled 
 
+More information can be found [here](https://www.cyberciti.biz/faq/understanding-etcshadow-file/).
+
 ###Hash Password###
 
 The Hash password is comprised of three different fields separated by *$*:
