@@ -1,6 +1,12 @@
 
 # Bash - Bourne shell
 
+## Bash Parameter Substitution
+
+Useful tutorial which explain how to use parameter substitution in Bash:
+
+https://www.cyberciti.biz/tips/bash-shell-parameter-substitution-2.html
+
 
 ## history
 

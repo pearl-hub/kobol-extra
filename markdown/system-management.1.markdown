@@ -308,7 +308,15 @@ permette di spostarsi sui vari runlevel
 simile a init
 
 
+## Load averages
 
+    L = R + W
+
+The load averages (L) over a given time period (typically 1m, 5m and 15m)
+is the average of running processes and the processes waiting to work.
+The number of processes running depends on the number of CPU/Core the system has.
+
+A good explanation [here](http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html).
 
 ## runlevel
 

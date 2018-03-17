@@ -604,8 +604,8 @@ browser web su SHELL!!!!
 
 ## ipcalc
 
-da info sull'ind IP. con -h trova il nome dell'host a partire dall' IP
-
+Good tutorial for the basic options
+[here](https://www.linux.com/learn/intro-to-linux/2017/8/how-calculate-network-addresses-ipcalc).
 
 ## route
 

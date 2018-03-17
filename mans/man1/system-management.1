@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "MANAGEMENT" "1" "June 2017" "Filippo Squillace" "system-management"
+.TH "MANAGEMENT" "1" "August 2017" "Filippo Squillace" "system-management"
 .
 .SH "NAME"
 \fBmanagement\fR \- System utility commands
@@ -308,6 +308,20 @@ permette di spostarsi sui vari runlevel
 .
 .SH "telinit 0123456\.\."
 simile a init
+.
+.SH "Load averages"
+.
+.nf
+
+L = R + W
+.
+.fi
+.
+.P
+The load averages (L) over a given time period (typically 1m, 5m and 15m) is the average of running processes and the processes waiting to work\. The number of processes running depends on the number of CPU/Core the system has\.
+.
+.P
+A good explanation here \fIhttp://www\.brendangregg\.com/blog/2017\-08\-08/linux\-load\-averages\.html\fR\.
 .
 .SH "runlevel"
 visualizza il livello di runlevel corrente
