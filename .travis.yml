@@ -22,7 +22,7 @@ install:
   - pearl install kobol
 
 script:
-  - bash ./tests/integ-tests/integ-tests.sh
-  - zsh ./tests/integ-tests/integ-tests.zsh
-  - fish ./tests/integ-tests/integ-tests.fish
+  - bash ./tests/test-utils/integ-tests/integ-tests.sh
+  - zsh ./tests/test-utils/integ-tests/integ-tests.sh
+  - fish ./tests/test-utils/integ-tests/integ-tests.fish
 
