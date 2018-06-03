@@ -220,11 +220,24 @@ To set the processes belonging to a given user:
 
 
 
-## watch -n num comando
+## watch
 
-Esegue un comando ripetutamente, ad intervalli di tempo specificati.Gli intervalli preimpostati sono di due secondi, ma questo valore puo essere modificato mediante l'opzione -n. es watch -n 5 tail /var/log/messages
+Execute the specified command repeatedly.
 
+Watch the `free` command every 2 secs:
+```
+watch free
+```
 
+Watch the `free` command and highlight the changes:
+```
+watch -d free
+```
+
+Watch the `free` command and highlight the changes to be sticky:
+```
+watch -d=cumulative free
+```
 
 
 ## man [sezione] pagina

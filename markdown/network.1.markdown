@@ -129,6 +129,10 @@ Display (-L) numbered (--line-numbers) firewall rules without DNS resolution (-n
 
 `iptables -P INPUT DROP`
 
+### ADD COMMENTS TO A RULE ###
+
+Use `-m` and `--comment` options to add a comment on any rule:
+`iptables .... -m comment --comment "Block port 25"`
 
 ### DELETE FIREWALL RULES ###
 
@@ -184,7 +188,6 @@ Serve per salvare l'insieme di regole (rule-set) all'interno di un file. -c serv
 Serve a caricare il file fornito da iptables-save nel kernel.  -c serve a mantenere memorizzati i contatori dei byte e dei pacchetti. Qst opzione può servire quando occorre chiudere il firewall, in qst modo le info relative alle quantità di byte e pacchetti rimangono comunque memorizzate.-n dice a iptables-restore di non sovrascrivere le regole precedenti. Di default le regole gia' esistenti vengono eliminate.
 
 `iptables-restore [-c] [-n] < /etc/iptables/mytables.rules`
-
 
 
 ### VARIOUS EXAMPLES ###
@@ -817,10 +820,27 @@ Kernel routing table:
 `nestat -r`
 
 
-Esiste un ulteriore comando denominato ss che consente di controllare i socket attivi sulla propria macchina
+## ss Dump socket statistics
 
+Syntax is similar to `netstat` but `ss` allows more complex filtering.
 
+For example to list of listen port with TCP/UDP protocol:
+`ss -nutlp`
 
+List of established connections with HTTPS (443) source port:
+```
+ss -np state established '( sport = :https )'
+```
+
+List of listening port for mail server:
+```
+ss -np state listening '( sport = :pop3s or sport = :imaps or sport = :ssmtp )'
+```
+
+List of listening ports from 500 to 100:
+```
+ss -np state listening '( sport ge 500 and sport le 1000 )'
+```
 
 ## ipchains -A input -j REJECT -s XXX.XXX.XXX.XXX -d 0/0 -p all
 
@@ -876,6 +896,34 @@ for example, SYN and FIN packets and ACK-only packets, enter:
 
 può configurare una interfaccia di rete in caso di assenza del dhcp per esempio. 192.168.0.1 è indIP, /24 indica la netmask
 
+## ip
+
+Replacement of legacy `ifconfig` and `route` commands.
+
+Find the IP address:
+
+```
+ip addr show
+```
+
+Display the routing table:
+
+```
+ip route list
+```
+
+
+Monitor changes in network interfaces (prefixed with *link* subcommand), routing tables (*route* subcommand), IP address (*addr* subcommand) or ARP address of neighbors on the local host (*neigh* subcommand):
+
+```
+ip monitor all
+```
+
+Get statistics about packets:
+
+```
+ip -s link list wlp3s0
+```
 
 ## Deal with DNS lookup ##
 

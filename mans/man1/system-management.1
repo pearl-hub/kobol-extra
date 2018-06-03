@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "MANAGEMENT" "1" "August 2017" "Filippo Squillace" "system-management"
+.TH "MANAGEMENT" "1" "June 2018" "Filippo Squillace" "system-management"
 .
 .SH "NAME"
 \fBmanagement\fR \- System utility commands
@@ -249,8 +249,17 @@ renice \-u user
 .
 .IP "" 0
 .
-.SH "watch \-n num comando"
-Esegue un comando ripetutamente, ad intervalli di tempo specificati\.Gli intervalli preimpostati sono di due secondi, ma questo valore puo essere modificato mediante l\'opzione \-n\. es watch \-n 5 tail /var/log/messages
+.SH "watch"
+Execute the specified command repeatedly\.
+.
+.P
+Watch the \fBfree\fR command every 2 secs: \fBwatch free\fR
+.
+.P
+Watch the \fBfree\fR command and highlight the changes: \fBwatch \-d free\fR
+.
+.P
+Watch the \fBfree\fR command and highlight the changes to be sticky: \fBwatch \-d=cumulative free\fR
 .
 .SH "man [sezione] pagina"
 La sezione e\' un numero\. visualizza i manuali dei comandi\. \-k "parola" cerca all\'interno dei manuali la parola (vedere il comando apropos che fa una operazione simile)\. e\' possibile fare una ricerca all\'interno del documento\. una volta entrati nel manuale digiare /"parola"

@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "NETWORK" "1" "August 2017" "Filippo Squillace" "network"
+.TH "NETWORK" "1" "June 2018" "Filippo Squillace" "network"
 .
 .SH "NAME"
 \fBNetwork\fR \- Network utility commands
@@ -201,6 +201,9 @@ Display (\-L) numbered (\-\-line\-numbers) firewall rules without DNS resolution
 .
 .SS "SET DEFAULT POLICY"
 \fBiptables \-P INPUT DROP\fR
+.
+.SS "ADD COMMENTS TO A RULE"
+Use \fB\-m\fR and \fB\-\-comment\fR options to add a comment on any rule: \fBiptables \.\.\.\. \-m comment \-\-comment "Block port 25"\fR
 .
 .SS "DELETE FIREWALL RULES"
 Delete the rule numbered four (using \-\-line\-numbers to get the number):
@@ -870,8 +873,20 @@ List of network interfaces: \fBnetstat \-i\fR
 .P
 Kernel routing table: \fBnestat \-r\fR
 .
+.SH "ss Dump socket statistics"
+Syntax is similar to \fBnetstat\fR but \fBss\fR allows more complex filtering\.
+.
 .P
-Esiste un ulteriore comando denominato ss che consente di controllare i socket attivi sulla propria macchina
+For example to list of listen port with TCP/UDP protocol: \fBss \-nutlp\fR
+.
+.P
+List of established connections with HTTPS (443) source port: \fBss \-np state established \'( sport = :https )\'\fR
+.
+.P
+List of listening port for mail server: \fBss \-np state listening \'( sport = :pop3s or sport = :imaps or sport = :ssmtp )\'\fR
+.
+.P
+List of listening ports from 500 to 100: \fBss \-np state listening \'( sport ge 500 and sport le 1000 )\'\fR
 .
 .SH "ipchains \-A input \-j REJECT \-s XXX\.XXX\.XXX\.XXX \-d 0/0 \-p all"
 inibisce le connessione al sistema da parte XXX\.XXX\.XXX\.XXX, applicando una regola\.
@@ -908,6 +923,61 @@ To display all IPv4 HTTP packets to and from port 80, i\.e\. print only packets 
 .
 .SH "ifconfig eth0 192\.168\.0\.1/24"
 può configurare una interfaccia di rete in caso di assenza del dhcp per esempio\. 192\.168\.0\.1 è indIP, /24 indica la netmask
+.
+.SH "ip"
+Replacement of legacy \fBifconfig\fR and \fBroute\fR commands\.
+.
+.P
+Find the IP address:
+.
+.IP "" 4
+.
+.nf
+
+ip addr show
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Display the routing table:
+.
+.IP "" 4
+.
+.nf
+
+ip route list
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Monitor changes in network interfaces (prefixed with \fIlink\fR subcommand), routing tables (\fIroute\fR subcommand), IP address (\fIaddr\fR subcommand) or ARP address of neighbors on the local host (\fIneigh\fR subcommand):
+.
+.IP "" 4
+.
+.nf
+
+ip monitor all
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Get statistics about packets:
+.
+.IP "" 4
+.
+.nf
+
+ip \-s link list wlp3s0
+.
+.fi
+.
+.IP "" 0
 .
 .SH "Deal with DNS lookup"
 .
