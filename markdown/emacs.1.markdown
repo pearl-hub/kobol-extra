@@ -21,10 +21,11 @@ Documentation with any key:
 Documentation for command by name:
 `Cntrl-h f`
 
-Search fo commands by keyword:
+Search for commands by keyword:
 `Cntrl-h a`
 
-
+Documentation for variable:
+`Cntrl-h v`
 
 
 ## Files
@@ -43,8 +44,6 @@ Save file as:
 `C-x C-w`
 
 
-
-
 ## Misc
 
 To apply Cntrl-c to the shell:
@@ -52,8 +51,6 @@ To apply Cntrl-c to the shell:
 
 To wrap line:
 `M-q`
-
-
 
 
 ## Movement
@@ -70,7 +67,6 @@ Next line:
 Previous line:
 `C-p`
 
-
 Move one word:
 `C-left or C-right`
 
@@ -84,17 +80,14 @@ Beginning of line:
 End of line:
 `C-e`
 
-
 Beginning of buffer:
 `M-<`
 
 End of buffer:
 `M->`
 
-
 Go to line:
 `C-g g`
-
 
 Switch buffers:
 `C-x b`
@@ -108,12 +101,9 @@ Move between buffers:
 Kill buffer:
 `C-x k`
 
-
 To recovery from a crash or to erase a
 keybindings sequence:
 `C-g`
-
-
 
 
 ## Search and replace
@@ -130,13 +120,11 @@ Return the cursor back:
 Incermental search backward:
 `C-r`
 
-
 Search and Replace:
 `M-%`
 
-
 REGULAR EXPRESSION:
-Apply a re:
+Apply a regex:
 `C-M-s`
 
 Interactive:
@@ -149,14 +137,13 @@ Replace with re:
 
 `M-x replace-regexp`
 
-Then typing 
+Then type:
 
+```
 \(\w+\) \(\w+\) with \,(upcase \2), \1
-
+```
 
 Exchange the words and the second one become uppercased.
-
-
 
 
 ## Keyboard macro
@@ -169,8 +156,6 @@ Stop record:
 
 Play macro:
 `F4`
-
-
 
 
 ## Mark Yank kill undo
@@ -188,7 +173,6 @@ Cut region:
 Copy region:
 `M-w`
 
-
 Paste line or region:
 `C-y`
 
@@ -196,9 +180,6 @@ Undo:
 `C-x u`
  or 
 `C-_`
-
-
-
 
 
 ## Programming
@@ -234,7 +215,6 @@ Calculator:
 
 Calendar:
 `M-x calendar`
-
 
 
 ## Version Control
@@ -289,8 +269,6 @@ List of minor modes:
 `M-x follow-mode`
 
 
-
-
 ## Manage windows
 
 Leave the current window:
@@ -323,7 +301,6 @@ Enlarge vertically:
 
 Shrink vertically:
 `C-x -`
-
 
 
 ## Dired
@@ -380,15 +357,15 @@ Update Dired buffer:
 `g`
 
 
-
 ## org-mode
+
+### General ###
 
 Change priority:
 `S-up or S-down`
 
 Change state:
 `S-left or S-right`
-
 
 Move task:
 `M-up or M-down`
@@ -399,7 +376,6 @@ Change outline level:
 Add new line:
 `M-RET`
 
-
 Cycle subtree:
 `Tab`
 
@@ -407,28 +383,38 @@ Global cycle:
 `S-Tab`
 
 
-Markups are:
+Text markups available:
+
+```
 *bold*
 /italic/
 _underline_
 +strike+
 =code=
 ~verbatim~
+```
 
-Create links: [[link]][[description]]
+Create links: `[[link]][[description]]`
+
 To go to the link:
 `C-c C-o`
 
+### Planning ####
 
 To set the TODO types
 (place it at the beginning of the file and reload in the same line
 with C-c C-c):
 
-`- +TODO: TODO IN-PROGRESS WAITING DONE`
+```
+- +TODO: TODO IN-PROGRESS WAITING DONE
+```
 
+To switch between state of the tasks:
+`C-c C-t` or `S-<left>/<right>`
 
-CHECKBOXES:
-To add a checkobox to a list:
+### Checkboxes ###
+
+To add a checkbox to a list:
 `- [ ]`
 
 To check the box:
@@ -442,14 +428,15 @@ To get mandatory the check of the box in sequence:
 `C-c C-x o`
 
 
-TABLE:
+### Table ###
+
 Just use the sequence:
-`|WORD`
+`|WORD RET`
 
 To set a separator:
 `|- or C-c -`
 
-Convert a selection of CSV in table:
+Convert a selection of lines in CSV format in table:
 `C-c |`
 
 Move column/row around:
@@ -462,8 +449,8 @@ New line:
 `C-c RET`
 
 
+### Agenda ###
 
-AGENDA:
 To open agenda command:
 `C-c a`
 
@@ -475,11 +462,11 @@ To add/remove a org file as agenda file:
 `C-c [ or C-c ]`
 
 
-CLOCKING:
-Clock in:
+### Clocking ###
+Clock in a task:
 `C-c C-x C-i`
 
-Clock out:
+Clock out a task:
 `C-c C-x C-o`
 
 Reload a clock:
@@ -488,35 +475,31 @@ Reload a clock:
 Cancel clock:
 `C-c C-x C-q`
 
-Displat a summary:
+Display a summary:
 `C-c C-x C-d`
 
 Report table:
 `C-c C-x C-r`
 
-
-DEADLINE and SCHEDULE:
+### Deadline and schedule ###
 Create deadline:
 `C-c C-d`
 
 Create schedule:
 `C-c C-s`
 
+### GTD (Get Things Done) ###
 
-GTD (Get Things Done):
-To add a task to an item:
+To add a tag to an item:
 `C-c C-q`
 
 To predefine some set of tags (at the beginning of the file):
 
-`- +TAGS: { @OFFICE(o) @HOME(h) } COMPUTER(c) PHONE(p) READING(r)`
+```
+- +TAGS: { @OFFICE(o) @HOME(h) } COMPUTER(c) PHONE(p) READING(r)
+```
 
-
-EXPORT:
+### Export ###
 
 `C-x C-e`
-
-
-
-
 

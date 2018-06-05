@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
 .\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "EMACS" "1" "June 2017" "Filippo Squillace" "emacs"
+.TH "EMACS" "1" "June 2018" "Filippo Squillace" "emacs"
 .
 .SH "NAME"
 \fBEmacs\fR \- Basics of Emacs
@@ -25,7 +25,10 @@ Documentation with any key: \fBCntrl\-h k\fR
 Documentation for command by name: \fBCntrl\-h f\fR
 .
 .P
-Search fo commands by keyword: \fBCntrl\-h a\fR
+Search for commands by keyword: \fBCntrl\-h a\fR
+.
+.P
+Documentation for variable: \fBCntrl\-h v\fR
 .
 .SH "Files"
 File chooser:
@@ -112,7 +115,7 @@ Incermental search backward: \fBC\-r\fR
 Search and Replace: \fBM\-%\fR
 .
 .P
-REGULAR EXPRESSION: Apply a re: \fBC\-M\-s\fR
+REGULAR EXPRESSION: Apply a regex: \fBC\-M\-s\fR
 .
 .P
 Interactive: \fBM\-x re\-builder\fR
@@ -127,10 +130,17 @@ Replace with re:
 \fBM\-x replace\-regexp\fR
 .
 .P
-Then typing
+Then type:
 .
-.P
-(\ew+) (\ew+) with \e,(upcase \e2), \e1
+.IP "" 4
+.
+.nf
+
+\e(\ew+\e) \e(\ew+\e) with \e,(upcase \e2), \e1
+.
+.fi
+.
+.IP "" 0
 .
 .P
 Exchange the words and the second one become uppercased\.
@@ -322,6 +332,8 @@ Diff files: \fB=\fR
 Update Dired buffer: \fBg\fR
 .
 .SH "org\-mode"
+.
+.SS "General"
 Change priority: \fBS\-up or S\-down\fR
 .
 .P
@@ -343,19 +355,47 @@ Cycle subtree: \fBTab\fR
 Global cycle: \fBS\-Tab\fR
 .
 .P
-Markups are: \fIbold\fR /italic/ \fIunderline\fR +strike+ =code= ~verbatim~
+Text markups available:
+.
+.IP "" 4
+.
+.nf
+
+*bold*
+/italic/
+_underline_
++strike+
+=code=
+~verbatim~
+.
+.fi
+.
+.IP "" 0
 .
 .P
-Create links: [[link]][[description]] To go to the link: \fBC\-c C\-o\fR
+Create links: \fB[[link]][[description]]\fR
 .
 .P
+To go to the link: \fBC\-c C\-o\fR
+.
+.SS "Planning"
 To set the TODO types (place it at the beginning of the file and reload in the same line with C\-c C\-c):
 .
-.P
-\fB\- +TODO: TODO IN\-PROGRESS WAITING DONE\fR
+.IP "" 4
+.
+.nf
+
+\- +TODO: TODO IN\-PROGRESS WAITING DONE
+.
+.fi
+.
+.IP "" 0
 .
 .P
-CHECKBOXES: To add a checkobox to a list: \fB\- [ ]\fR
+To switch between state of the tasks: \fBC\-c C\-t\fR or \fBS\-<left>/<right>\fR
+.
+.SS "Checkboxes"
+To add a checkbox to a list: \fB\- [ ]\fR
 .
 .P
 To check the box: \fBC\-c C\-c\fR
@@ -369,14 +409,14 @@ To get mandatory the check of the box in sequence:
 .P
 \fBC\-c C\-x o\fR
 .
-.P
-TABLE: Just use the sequence: \fB|WORD\fR
+.SS "Table"
+Just use the sequence: \fB|WORD RET\fR
 .
 .P
 To set a separator: \fB|\- or C\-c \-\fR
 .
 .P
-Convert a selection of CSV in table: \fBC\-c |\fR
+Convert a selection of lines in CSV format in table: \fBC\-c |\fR
 .
 .P
 Move column/row around: \fBM\-(up/down/left/right)\fR
@@ -387,8 +427,8 @@ Add/remove column/row: \fBM\-S\-(up/down/left/right)\fR
 .P
 New line: \fBC\-c RET\fR
 .
-.P
-AGENDA: To open agenda command: \fBC\-c a\fR
+.SS "Agenda"
+To open agenda command: \fBC\-c a\fR
 .
 .P
 To set a time to an item: \fBC\-c \.\fR
@@ -396,11 +436,11 @@ To set a time to an item: \fBC\-c \.\fR
 .P
 and then S\-left or S\-right to choose the day\. To add/remove a org file as agenda file: \fBC\-c [ or C\-c ]\fR
 .
-.P
-CLOCKING: Clock in: \fBC\-c C\-x C\-i\fR
+.SS "Clocking"
+Clock in a task: \fBC\-c C\-x C\-i\fR
 .
 .P
-Clock out: \fBC\-c C\-x C\-o\fR
+Clock out a task: \fBC\-c C\-x C\-o\fR
 .
 .P
 Reload a clock: \fBC\-c C\-c\fR
@@ -409,28 +449,32 @@ Reload a clock: \fBC\-c C\-c\fR
 Cancel clock: \fBC\-c C\-x C\-q\fR
 .
 .P
-Displat a summary: \fBC\-c C\-x C\-d\fR
+Display a summary: \fBC\-c C\-x C\-d\fR
 .
 .P
 Report table: \fBC\-c C\-x C\-r\fR
 .
-.P
-DEADLINE and SCHEDULE: Create deadline: \fBC\-c C\-d\fR
+.SS "Deadline and schedule"
+Create deadline: \fBC\-c C\-d\fR
 .
 .P
 Create schedule: \fBC\-c C\-s\fR
 .
-.P
-GTD (Get Things Done): To add a task to an item: \fBC\-c C\-q\fR
+.SS "GTD (Get Things Done)"
+To add a tag to an item: \fBC\-c C\-q\fR
 .
 .P
 To predefine some set of tags (at the beginning of the file):
 .
-.P
-\fB\- +TAGS: { @OFFICE(o) @HOME(h) } COMPUTER(c) PHONE(p) READING(r)\fR
+.IP "" 4
 .
-.P
-EXPORT:
+.nf
+
+\- +TAGS: { @OFFICE(o) @HOME(h) } COMPUTER(c) PHONE(p) READING(r)
 .
-.P
+.fi
+.
+.IP "" 0
+.
+.SS "Export"
 \fBC\-x C\-e\fR
